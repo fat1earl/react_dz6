@@ -12,6 +12,9 @@ const NumericInput = ({ value, onChange }) => (
 
 const withLocalStorage = (Component, initialValue, storageKey) => {
   class SetLocalStorage extends React.Component {
+    static displayName = `withLocalStorage(${
+      Component.displayName || Component.name || ""
+    })`;
     constructor(props) {
       super(props);
 
