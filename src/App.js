@@ -18,14 +18,14 @@ const withLocalStorage = (Component, initialValue, storageKey) => {
       const value = localStorage.getItem(storageKey);
 
       this.state = {
-        value: value,
+        value: value ? JSON.parse(value) : initialValue,
       };
     }
 
     onChange = (e) => {
       this.setState({ value: e.target.value });
 
-      localStorage.setItem(storageKey, this.state.value);
+      localStorage.setItem(storageKey, JSON.stringify(this.state.value));
     };
 
     render() {
